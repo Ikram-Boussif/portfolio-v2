@@ -1,0 +1,43 @@
+<section id="skills">
+
+  <div class="section-header">
+    <h2>Technical <span class="gradient-text">Skills</span></h2>
+    <p>Technologies I work with on a daily basis</p>
+  </div>
+
+  <div class="content">
+
+    <div class="left">
+      <div class="skill-group" *ngFor="let group of skillGroups">
+        <div class="group-title">
+          <span class="icon">{{ group.icon }}</span>
+          <span>{{ group.category }}</span>
+        </div>
+        <div class="chips">
+          <span class="chip {{ group.color }}" *ngFor="let skill of group.skills; let i = index"
+            [style.animation-delay]="i * 80 + 'ms'">
+            {{ skill }}
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- <div class="right">
+      <h3>Proficiency</h3>
+      <div class="bars">
+        <div class="bar-item" *ngFor="let skill of mainSkills">
+          <div class="bar-header">
+            <span class="bar-name">{{ skill.name }}</span>
+            <span class="bar-level">{{ skill.level }}%</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill" [style.width.%]="skill.level"></div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+  </div>
+
+</section>

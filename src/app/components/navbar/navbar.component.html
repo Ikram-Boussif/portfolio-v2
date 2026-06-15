@@ -1,0 +1,12 @@
+<nav>
+  <div class="logo gradient-text">IB.</div>
+  <ul>
+    <li><a href="#about">about</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#assistant">assistant</a></li>
+  </ul>
+  <button class="toggle" (click)="theme.toggle()">
+    {{ theme.isDark() ? '☀️' : '🌙' }}
+  </button>
+</nav>

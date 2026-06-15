@@ -1,0 +1,62 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  // navbar stays stuck at the top even you scroll
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+  background: rgba(13, 13, 20, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid var(--border-color);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+ul {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+a {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--accent-purple);
+  }
+}
+
+.toggle {
+  background: none;
+  border: 0.5px solid var(--border-color);
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: var(--accent-purple);
+  }
+}
+
+@media (max-width: 600px) {
+  nav {
+    padding: 14px 20px;
+  }
+
+  ul {
+    display: none;
+  }
+}

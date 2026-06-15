@@ -1,0 +1,56 @@
+<section id="about">
+  <div class="hero-content">
+
+    <div class="left">
+      <div class="badge">
+        <span class="dot"></span>
+        <span>available for opportunities</span>
+      </div>
+      <div class="name-row">
+        <h1>Hi, I'm <span class="gradient-text">Ikram</span></h1>
+        <button class="watch-btn" (click)="showVideo = true">
+          <div class="play-icon">▶</div>
+          <div class="watch-info">
+            <span class="watch-text">Watch intro</span>
+            <span class="watch-sub">1 min recap</span>
+          </div>
+        </button>
+      </div>
+      <h2>
+  {{ displayedText() }}<span class="cursor" [class.visible]="showCursor()">|</span>
+</h2>
+      <p>Crafting high-performance web apps with Angular & TypeScript. Specialized in fintech platforms, real-time
+        features & clean architecture.</p>
+      <div class="btns">
+        <a href="#projects" class="btn-primary gradient-bg">View projects</a>
+        <a href="#assistant" class="btn-secondary">Ask me anything ✦</a>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="avatar-ring">
+        <div class="avatar-inner gradient-text">IB</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="num gradient-text">3+</span>
+      <span class="label">years exp.</span>
+    </div>
+    <div class="stat">
+      <span class="num gradient-text">79%</span>
+      <span class="label">perf. boost</span>
+    </div>
+    <div class="stat">
+      <span class="num gradient-text">v14→19</span>
+      <span class="label">migration led</span>
+    </div>
+    <div class="stat">
+      <span class="num gradient-text">5+</span>
+      <span class="label">projects</span>
+    </div>
+  </div>
+</section>

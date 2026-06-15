@@ -1,0 +1,62 @@
+<section id="projects">
+
+  <div class="section-header">
+    <h2>Featured <span class="gradient-text">Projects</span></h2>
+    <p>Things I've built</p>
+  </div>
+
+  <div class="filters">
+    <button
+      class="filter"
+      *ngFor="let f of filters"
+      [class.active]="activeFilter() === f"
+      (click)="setFilter(f)">
+      {{ f }}
+    </button>
+  </div>
+
+  <div class="grid">
+    <div class="card" *ngFor="let project of filteredProjects()">
+
+      <div class="card-img" [ngClass]="'img-' + project.color">
+        <span class="badge" [ngClass]="'badge-' + project.color">
+          {{ project.category }}
+        </span>
+        <div class="mock-screen">
+          <div class="mock-bar">
+            <div class="mock-dot red"></div>
+            <div class="mock-dot yellow"></div>
+            <div class="mock-dot green"></div>
+          </div>
+          <div class="mock-content">
+            <div class="mock-sidebar"></div>
+            <div class="mock-main">
+              <div class="mock-row" [ngClass]="'row-' + project.color" style="width:60%"></div>
+              <div class="mock-row dark" style="width:90%"></div>
+              <div class="mock-row" [ngClass]="'row-' + project.color" style="width:75%;opacity:.5"></div>
+              <div class="mock-row dark" style="width:85%"></div>
+              <div class="mock-row" [ngClass]="'row-' + project.color" style="width:50%;opacity:.3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="card-name">{{ project.name }}</div>
+        <div class="card-desc">{{ project.description }}</div>
+        <div class="card-tags">
+          <span class="tag" *ngFor="let tag of project.tags">{{ tag }}</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-year">📅 {{ project.year }}</div>
+          <div class="card-links">
+            <a [href]="project.github" target="_blank" class="link-btn">GitHub ↗</a>
+            <a *ngIf="project.live" [href]="project.live" target="_blank" class="link-btn live">Live ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>

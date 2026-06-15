@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --accent-purple: #7f77dd;
+  --accent-teal: #5dcaa5;
+  --bg-primary: #0d0d14;
+  --bg-secondary: #13131f;
+  --bg-card: #1a1a2e;
+  --border-color: #1e1e2e;
+  --text-primary: #ffffff;
+  --text-secondary: #888888;
+  --text-muted: #444444;
+}
+
+body {
+  font-family:
+    "Inter",
+    -apple-system,
+    sans-serif;
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition:
+    background 0.3s,
+    color 0.3s;
+  background: linear-gradient(135deg, #1a0f2e 0%, #0d0d14 45%, #0d1f1a 100%);
+  min-height: 100vh;
+}
+
+body.light {
+  --bg-primary: #f8f8fc;
+  --bg-secondary: #ffffff;
+  --bg-card: #f0f0f8;
+  --border-color: #e0e0ee;
+  --text-primary: #0d0d14;
+  --text-secondary: #555555;
+  --text-muted: #999999;
+  background: linear-gradient(135deg, #f0eeff 0%, #f8f8fc 45%, #eef8f4 100%);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--accent-purple), var(--accent-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-teal));
+}
