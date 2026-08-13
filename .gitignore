@@ -42,3 +42,7 @@ testem.log
 Thumbs.db
 # API Keys — never commit
 src/environments/
+# Videos — hosted on YouTube
+*.mp4
+*.webm
+*.mov
