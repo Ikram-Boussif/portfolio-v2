@@ -1,12 +1,23 @@
 <nav>
-  <div class="logo gradient-text">IB.</div>
+  <div class="logo gradient-text" routerLink="/">IB.</div>
+
   <ul>
-    <li><a href="#about">about</a></li>
-    <li><a href="#skills">skills</a></li>
-    <li><a href="#projects">projects</a></li>
-    <li><a href="#assistant">assistant</a></li>
+    <li><a href="#about" [class.active]="router.url === '/'">{{ language.lang() === 'en' ? 'About' : 'À propos' }}</a></li>
+    <li><a href="#experience">{{ language.lang() === 'en' ? 'Exprience' : 'Expérience' }}</a></li>
+    <li><a href="#skills">{{ language.lang() === 'en' ? 'Skills' : 'Compétences' }}</a></li>
+    <li><a href="#projects">{{ language.lang() === 'en' ? 'Projects' : 'Projets' }}</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="toggle" (click)="theme.toggle()">
-    {{ theme.isDark() ? '☀️' : '🌙' }}
-  </button>
+
+  <div class="nav-actions">
+    <div class="toggle-pill">
+      <span class="pill-item" [class.act]="language.lang() === 'en'"
+        (click)="language.lang() === 'fr' && language.toggle()">EN</span>
+      <span class="pill-item" [class.act]="language.lang() === 'fr'"
+        (click)="language.lang() === 'en' && language.toggle()">FR</span>
+    </div>
+    <!-- <button class="toggle" (click)="theme.toggle()">
+      {{ theme.isDark() ? '☀️' : '🌙' }}
+    </button> -->
+  </div>
 </nav>

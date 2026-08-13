@@ -1,0 +1,54 @@
+<section id="experience">
+
+  <div class="section-header" scrollAnimation direction="up">
+    <h2>{{ lang.t(texts.title) }} <span class="gradient-text">{{ lang.t(texts.titleGradient) }}</span></h2>
+    <p>{{ lang.t(texts.subtitle) }}</p>
+  </div>
+
+  <div class="timeline">
+    <div class="exp-item" *ngFor="let exp of experiences; let i = index" scrollAnimation direction="left">
+
+      <div class="exp-line">
+        <div class="exp-dot"></div>
+        <div class="exp-connector" *ngIf="i < experiences.length - 1"></div>
+      </div>
+
+      <div class="exp-card" [ngClass]="{'expanded': isExpanded(i)}">
+
+        <div class="exp-top">
+          <div class="exp-badges">
+            <span class="current-badge" *ngIf="exp.current">{{ lang.t(texts.current) }}</span>
+          </div>
+          <div class="exp-header">
+            <div class="exp-left">
+              <div class="exp-title">{{ lang.t(exp.title) }}</div>
+              <div class="exp-company">{{ exp.company }}</div>
+              <div class="exp-meta">
+                <span>📅 {{ lang.t(exp.period) }}</span>
+                <span>📍  {{ lang.t(exp.location) }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-tags">
+            <span class="exp-tag" *ngFor="let tag of exp.tags">
+              {{ tag }}
+            </span>
+          </div>
+        </div>
+
+        <div class="exp-details" *ngIf="isExpanded(i)">
+          <ul class="exp-bullets">
+            <li *ngFor="let bullet of exp.bullets[lang.lang()]">{{ bullet }}</li>
+          </ul>
+        </div>
+
+        <button class="toggle-btn" (click)="toggle(i)">
+          {{ isExpanded(i) ? lang.t(texts.showLess) : lang.t(texts.viewDetails) }}
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+</section>

@@ -1,23 +1,19 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { HeroComponent } from './components/hero/hero.component';
-import { SkillsComponent } from './components/skills/skills.component';
-import { ProjectsComponent } from './components/projects/projects.component';
-import { AssistantComponent } from './components/assistant/assistant.component';
 import { FloatingBarComponent } from './components/floating-bar/floating-bar.component';
 import { ThemeSelectorComponent } from './components/theme-selector/theme-selector.component';
+import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
+    RouterOutlet,
     NavbarComponent,
-    HeroComponent,
-    SkillsComponent,
-    ProjectsComponent,
-    AssistantComponent,
     FloatingBarComponent,
-    ThemeSelectorComponent
+    ThemeSelectorComponent,
+    ScrollTopComponent
   ],
   templateUrl: './app.component.html',
   styles: [`

@@ -91,3 +91,8 @@
     right: 12px;
   }
 }
+@media (max-width: 768px) {
+  .floating-bar {
+    display: none;
+  }
+}

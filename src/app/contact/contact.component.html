@@ -1,0 +1,51 @@
+<section id="contact" scrollAnimation>
+
+  <div class="section-header">
+    <h2>{{ lang.t(texts.title) }}<span class="gradient-text">{{ lang.t(texts.titleGradient) }}</span></h2>
+    <p>{{ lang.t(texts.subtitle) }}</p>
+  </div>
+
+  <div class="contact-wrapper">
+
+    <div class="contact-form">
+
+      <div class="success-msg" *ngIf="isSuccess()">
+        <span>✅</span>
+        <p>Message sent successfully! I'll get back to you soon.</p>
+      </div>
+
+      <div class="error-msg" *ngIf="isError()">
+        <span>❌</span>
+        <p>{{ lang.t(texts.error) }}</p>
+      </div>
+
+      <div class="form-group">
+        <label>{{ lang.t(texts.name) }} <span class="required">*</span></label>
+        <input type="text" [placeholder]="lang.t(texts.namePlaceholder)" [value]="name()" (input)="name.set($any($event.target).value)"
+          class="form-input" />
+      </div>
+
+      <div class="form-group">
+        <label>{{ lang.t(texts.email) }}<span class="required">*</span></label>
+        <input type="email" [placeholder]="lang.t(texts.emailPlaceholder)" [value]="email()"
+          (input)="email.set($any($event.target).value)" class="form-input" />
+      </div>
+
+      <div class="form-group">
+        <label>{{ lang.t(texts.message) }}<span class="required">*</span></label>
+        <textarea [placeholder]="lang.t(texts.messagePlaceholder)" [value]="message()"
+          (input)="message.set($any($event.target).value)" class="form-input" rows="5">
+        </textarea>
+      </div>
+
+      <button class="submit-btn gradient-bg" (click)="sendEmail()"
+        [disabled]="!name() || !email() || !message() || isLoading()">
+        <!-- {{ isLoading() ? 'Sending...' : 'Send Message ↗' }} -->
+        {{ isLoading() ? lang.t(texts.sending) : lang.t(texts.send) }}
+      </button>
+
+    </div>
+
+  </div>
+
+</section>

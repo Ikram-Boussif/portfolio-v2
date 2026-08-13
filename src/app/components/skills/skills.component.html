@@ -1,14 +1,15 @@
 <section id="skills">
 
-  <div class="section-header">
-    <h2>Technical <span class="gradient-text">Skills</span></h2>
-    <p>Technologies I work with on a daily basis</p>
+  <div class="section-header" scrollAnimation direction="up">
+
+    <h2>{{ lang.t(texts.title) }} <span class="gradient-text">{{ lang.t(texts.titleGradient) }}</span></h2>
+    <p>{{ lang.t(texts.subtitle) }}</p>
   </div>
 
   <div class="content">
 
     <div class="left">
-      <div class="skill-group" *ngFor="let group of skillGroups">
+      <div class="skill-group" scrollAnimation direction="left" *ngFor="let group of skillGroups">
         <div class="group-title">
           <span class="icon">{{ group.icon }}</span>
           <span>{{ group.category }}</span>

@@ -1,1 +1,95 @@
-<p>project-detail works!</p>
+<div class="detail-page" *ngIf="project()">
+
+
+  <button class="back-link" (click)="goBack()">
+    ← Back to projects
+  </button>
+
+  <!-- Header -->
+  <div class="detail-header">
+    <div class="detail-left">
+      <div class="detail-badges">
+        <span class="detail-badge" [ngClass]="'badge-' + project()!.color">
+          {{ project()!.category }}
+        </span>
+        <span class="detail-badge badge-type">{{ project()!.type[lang.lang()] }}</span>
+        <span class="detail-badge badge-private" *ngIf="project()!.private">
+          🔒 {{ lang.lang() === 'en' ? 'Private' : 'Privé'}}
+        </span>
+      </div>
+      <h1>{{ project()!.name }}</h1>
+      <p class="detail-year">{{ project()!.year[lang.lang()] }}</p>
+      <div class="detail-tags">
+        <span class="detail-tag" *ngFor="let tag of project()!.tags">{{ tag }}</span>
+      </div>
+    </div>
+    <div class="detail-links" *ngIf="!project()!.private">
+      <a [href]="project()!.github" target="_blank" class="detail-btn">
+        GitHub ↗
+      </a>
+      <a *ngIf="project()!.live" [href]="project()!.live" target="_blank" class="detail-btn detail-btn-grad">
+        Live ↗
+      </a>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab" [class.active]="activeTab() === 'overview'" (click)="setTab('overview')">
+      {{ lang.lang() === 'en' ? 'Overview' : 'Aperçu' }}
+    </button>
+    <button class="tab" *ngIf="project()!.hasDemo" [class.active]="activeTab() === 'demo'" (click)="setTab('demo')">
+      Demo
+    </button>
+  </div>
+
+  <!-- Tab content -->
+  <div class="tab-content">
+
+    <!-- Overview -->
+    <div *ngIf="activeTab() === 'overview'">
+      <p class="detail-description">{{ project()!.description[lang.lang()] }}</p>
+      <div class="detail-section-title">{{ lang.lang() === 'en' ? 'Key contributions' : 'Contributions clés' }}</div>
+      <ul class="detail-bullets">
+        <li *ngFor="let bullet of project()!.bullets[lang.lang()]">{{ bullet }}</li>
+      </ul>
+    </div>
+
+    <!-- Demo -->
+    <div *ngIf="activeTab() === 'demo'">
+      <div class="demo-video" *ngIf="project()!.videoSrc">
+        <video controls [src]="project()!.videoSrc" width="100%">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="demo-screenshots" *ngIf="project()!.screenshots.length">
+        <div class="screenshot-wrapper main" (click)="openZoom(project()!.screenshots[0])">
+          <img [src]="project()!.screenshots[0]" [alt]="project()!.name + ' screenshot 1'" class="screenshot-main" />
+          <div class="zoom-hint">🔍</div>
+        </div>
+
+        <div class="screenshots-sub" *ngIf="project()!.screenshots.length > 1">
+          <div class="screenshot-wrapper" *ngFor="let shot of project()!.screenshots.slice(1)" (click)="openZoom(shot)">
+            <img [src]="shot" [alt]="project()!.name + ' screenshot'" class="screenshot-thumb" />
+            <div class="zoom-hint">🔍</div>
+          </div>
+        </div>
+      </div>
+      <!-- Zoom overlay -->
+      <div class="zoom-overlay" *ngIf="zoomedImage()" (click)="closeZoom()">
+        <div class="zoom-close" (click)="closeZoom()">✕</div>
+        <img [src]="zoomedImage()!" class="zoom-img" (click)="$event.stopPropagation()" />
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Not found -->
+<div class="not-found" *ngIf="!project()">
+  <p>Project not found.</p>
+  <button class="back-link" (click)="goBack()">
+    {{ lang.lang() === 'en' ? '← Back to projects' : '← Retour aux projets' }}
+  </button>
+</div>

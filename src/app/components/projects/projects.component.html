@@ -1,27 +1,27 @@
-<section id="projects">
+<section id="projects" scrollAnimation>
 
   <div class="section-header">
-    <h2>Featured <span class="gradient-text">Projects</span></h2>
-    <p>Things I've built</p>
+    <h2>{{ lang.t(texts.title) }} <span class="gradient-text">{{ lang.t(texts.titleGradient) }}</span></h2>
+    <p>{{ lang.t(texts.subtitle) }}</p>
   </div>
 
   <div class="filters">
-    <button
-      class="filter"
-      *ngFor="let f of filters"
-      [class.active]="activeFilter() === f"
+    <button class="filter" *ngFor="let f of texts.filters[lang.lang()]"
+      [class.active]="activeFilter() === f || (f === 'Tous' && activeFilter() === 'All') || (f === 'All' && activeFilter() === 'Tous')"
       (click)="setFilter(f)">
       {{ f }}
     </button>
   </div>
 
   <div class="grid">
-    <div class="card" *ngFor="let project of filteredProjects()">
+    <div class="card" scrollAnimation direction="right" *ngFor="let project of visibleProjects()"
+      [routerLink]="['/projects', project.id]">
 
       <div class="card-img" [ngClass]="'img-' + project.color">
         <span class="badge" [ngClass]="'badge-' + project.color">
           {{ project.category }}
         </span>
+        <span class="private-badge" *ngIf="project.private">🔒 {{lang.lang() === 'en' ? 'Private' : 'Privé'}}</span>
         <div class="mock-screen">
           <div class="mock-bar">
             <div class="mock-dot red"></div>
@@ -43,20 +43,38 @@
 
       <div class="card-body">
         <div class="card-name">{{ project.name }}</div>
-        <div class="card-desc">{{ project.description }}</div>
+        <div class="card-desc">{{ project.description[lang.lang()] }}</div>
         <div class="card-tags">
           <span class="tag" *ngFor="let tag of project.tags">{{ tag }}</span>
         </div>
         <div class="card-footer">
-          <div class="card-year">📅 {{ project.year }}</div>
+          <div class="card-year">📅 {{ lang.t(project.year) }}</div>
           <div class="card-links">
             <a [href]="project.github" target="_blank" class="link-btn">GitHub ↗</a>
+            <span *ngIf="project.private" class="link-btn private">
+              🔒 {{lang.lang() === 'en' ? 'Private' : 'Privé'}}</span>
             <a *ngIf="project.live" [href]="project.live" target="_blank" class="link-btn live">Live ↗</a>
+            <a [routerLink]="['/projects', project.id]" class="link-btn details">
+               {{ lang.lang() === 'en' ? 'View Details ↗' : 'Voir détails ↗' }}
+            </a>
           </div>
         </div>
       </div>
 
     </div>
+  </div>
+
+  <div class="show-more" *ngIf="filteredProjects().length > 4 && !showAll()">
+    <button class="show-more-btn" (click)="showAll.set(true)">
+      {{ lang.t(texts.viewMore) }}
+    </button>
+  </div>
+
+
+  <div class="show-more" *ngIf="showAll()">
+    <button class="show-more-btn" (click)="showAll.set(false)">
+      {{ lang.t(texts.showLess) }}
+    </button>
   </div>
 
 </section>

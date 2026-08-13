@@ -113,3 +113,19 @@
   color: var(--accent-teal);
   font-weight: 600;
 }
+@media (max-width: 768px) {
+  .theme-selector {
+    bottom: 12px;
+    left: 8px;
+  }
+
+  .palette-btn {
+    width: 30px;
+    height: 30px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}

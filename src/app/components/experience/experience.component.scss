@@ -1,0 +1,237 @@
+// section {
+//   padding: 80px 0;
+// }
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+
+  h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 15px;
+    color: var(--text-secondary);
+  }
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.exp-item {
+  display: flex;
+  gap: 20px;
+}
+
+.exp-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 20px;
+}
+
+.exp-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 2px solid;
+
+  color: var(--accent-purple);
+
+  // &.dot-purple {
+  //   background: #7f77dd33;
+  //   border-color: #7f77dd;
+  //   box-shadow: 0 0 8px #7f77dd55;
+  // }
+  // &.dot-teal {
+  //   background: #5dcaa533;
+  //   border-color: #5dcaa5;
+  //   box-shadow: 0 0 8px #5dcaa555;
+  // }
+  // &.dot-blue {
+  //   background: #378add33;
+  //   border-color: #378add;
+  //   box-shadow: 0 0 8px #378add55;
+  // }
+  // &.dot-orange {
+  //   background: #ef9f2733;
+  //   border-color: #ef9f27;
+  //   box-shadow: 0 0 8px #ef9f2755;
+  // }
+}
+
+.exp-connector {
+  width: 1.5px;
+  flex: 1;
+  background: var(--border-color);
+  margin: 6px 0;
+  min-height: 20px;
+}
+
+.exp-card {
+  flex: 1;
+  background: var(--bg-secondary);
+  border: 0.5px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: #7f77dd33;
+  }
+
+  &.expanded {
+    border-color: #7f77dd44;
+  }
+}
+
+.exp-badges {
+  margin-bottom: 10px;
+}
+
+.current-badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: #5dcaa5;
+  background: #5dcaa515;
+  border: 0.5px solid #5dcaa544;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.exp-title {
+  // font-size: 16px;
+  // font-weight: 600;
+  // margin-bottom: 4px;
+
+  // &.title-purple { color: #AFA9EC; }
+  // &.title-teal   { color: #5DCAA5; }
+  // &.title-blue   { color: #85B7EB; }
+  // &.title-orange { color: #EF9F27; }
+
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--accent-purple);
+}
+
+.exp-company {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.exp-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.exp-tag {
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  background: var(--accent-purple-15, #7f77dd15);
+  border: 0.5px solid var(--accent-purple-44, #7f77dd44);
+  color: var(--accent-purple);
+  transition: all 0.2s;
+
+  &:hover {
+    background: #7f77dd25;
+    transform: translateY(-2px);
+  }
+}
+
+.exp-details {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 0.5px solid var(--border-color);
+  animation: fadeIn 0.3s ease;
+}
+
+.exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  li {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding-left: 16px;
+    position: relative;
+
+    &::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--accent-purple);
+      font-size: 10px;
+      top: 3px;
+    }
+  }
+}
+
+.toggle-btn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 10px;
+  background: var(--bg-card);
+  border: 0.5px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: #7f77dd44;
+    color: var(--accent-purple);
+    background: #7f77dd11;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .exp-card {
+    padding: 16px;
+  }
+
+  .exp-meta {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
