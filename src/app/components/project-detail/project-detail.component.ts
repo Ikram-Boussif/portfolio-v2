@@ -2,6 +2,7 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { NgFor, NgIf, NgClass } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 interface ProjectDetail {
   id: number;
@@ -18,7 +19,7 @@ interface ProjectDetail {
   private: boolean;
   hasDemo: boolean;
   screenshots: string[];
-  videoSrc?: string;
+  videoUrl?: string;
 }
 
 @Component({
@@ -35,6 +36,7 @@ export class ProjectDetailComponent implements OnInit {
   zoomedImage = signal<string | null>(null);
   router = inject(Router);
   lang = inject(LanguageService);
+  sanitizer = inject(DomSanitizer);
 
   projects: ProjectDetail[] = [
     {
@@ -51,7 +53,6 @@ export class ProjectDetailComponent implements OnInit {
         'projects/fintech/asp.png',
         'projects/fintech/prefile.png'
       ],
-      videoSrc: '',
       tags: ['Angular 19', 'Spring Boot', 'NgRx', 'Chart.js', 'CometChat', 'Leaflet'],
       github: '',
       description: {
@@ -92,7 +93,7 @@ export class ProjectDetailComponent implements OnInit {
       hasDemo: true,
       screenshots: [
       ],
-      videoSrc: 'projects/kindergarten/kindergarten-demo.mp4',
+      videoUrl: 'https://www.youtube.com/embed/7H4U5ocYoHs',
       tags: ['Java', 'JavaScript', 'HTML', 'CSS', 'C#', 'Git'],
       github: 'https://github.com/mohamed-kouti/Kindergarten_Backend',
       description: {
@@ -130,7 +131,6 @@ export class ProjectDetailComponent implements OnInit {
         'projects/herbin/loginPage.png',
         'projects/herbin/products-list.png'
       ],
-      videoSrc: '',
       tags: ['Angular', 'Spring Boot', 'Bootstrap'],
       github: 'https://github.com/Ikram-Boussif/ProjetHerbin',
       description: {
@@ -164,7 +164,6 @@ export class ProjectDetailComponent implements OnInit {
       private: false,
       hasDemo: true,
       screenshots: ['projects/meteo/meteo-project-screenshot.png'],
-      videoSrc: '',
       tags: ['JavaScript', 'HTML', 'CSS', 'API REST'],
       github: 'https://github.com/Ikram-Boussif/meteo-project',
       description: {
@@ -196,7 +195,7 @@ export class ProjectDetailComponent implements OnInit {
       private: false,
       hasDemo: true,
       screenshots: [],
-      videoSrc: 'projects/theRightPriceGame/justPrixDemo.mp4',
+      videoUrl: 'https://www.youtube.com/embed/k6b-_X4SqtA',
       tags: ['JavaScript', 'HTML', 'CSS', 'Git'],
       github: 'https://github.com/Ikram-Boussif/price-guessing-game',
       description: {
@@ -223,6 +222,11 @@ export class ProjectDetailComponent implements OnInit {
       }
     }
   ];
+
+
+  getSafeUrl(url: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 
   ngOnInit() {
     const id = +this.route.snapshot.params['id'];
