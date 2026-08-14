@@ -26,7 +26,7 @@ interface Project {
 export class ProjectsComponent {
   activeFilter = signal('All');
 
-  filters = ['All', 'Frontend', 'Full-Stack', 'Mobile'];
+  filters = ['All', 'Frontend', 'Full-Stack'];
   showAll = signal(false);
   lang = inject(LanguageService);
 
@@ -38,8 +38,8 @@ export class ProjectsComponent {
     showLess: { en: 'Show less ↑', fr: 'Réduire ↑' },
     viewDetails: { en: 'View Details ↗', fr: 'Voir détails ↗' },
     filters: {
-      en: ['All', 'Frontend', 'Full-Stack', 'Mobile'],
-      fr: ['Tous', 'Frontend', 'Full-Stack', 'Mobile']
+      en: ['All', 'Frontend', 'Full-Stack'],
+      fr: ['Tous', 'Frontend', 'Full-Stack']
     }
   };
 
