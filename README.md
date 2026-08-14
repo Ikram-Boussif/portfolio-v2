@@ -2,7 +2,6 @@
 
 ![Angular](https://img.shields.io/badge/Angular-19.2.22-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
 🌐 **Live Demo** → [ikram-boussif-portfolio.vercel.app](https://ikram-boussif-portfolio.vercel.app/)
