@@ -12,9 +12,13 @@ export class HeroComponent implements OnInit, OnDestroy {
   lang = inject(LanguageService);
   showVideo = false;
 
+  currentQuoteIndex = signal(0);
+  isPaused = false;
+  private quoteTimer: any;
+
   texts = {
     badge: { en: 'available for opportunities', fr: 'disponible pour de nouvelles opportunités' },
-    greeting: { en: 'Hi, I\'m', fr: 'Bonjour, je suis' },
+    greeting: { en: 'Hi, I\'m', fr: 'Bienvenue, je suis' },
     description: {
       en: '3 years crafting production-grade fintech platforms with Angular & Spring Boot. I build things that perform, scale, and last.',
       fr: '3 ans à concevoir des plateformes fintech de production avec Angular & Spring Boot. Je construis des apps performantes, scalables et durables.'
@@ -32,6 +36,33 @@ export class HeroComponent implements OnInit, OnDestroy {
     }
   };
 
+  quotes = [
+    { text: '"The only way to do great work is to love what you do."', author: '— Steve Jobs' },
+    { text: '"Code is like humor. When you have to explain it, it\'s bad."', author: '— Cory House' },
+    { text: '"First, solve the problem. Then, write the code."', author: '— John Johnson' }
+  ]
+
+  get currentQuote() {
+    return this.quotes[this.currentQuoteIndex()];
+  }
+
+  startQuoteRotation() {
+    this.quoteTimer = setInterval(() => {
+      if (!this.isPaused) {
+        this.currentQuoteIndex.update(i =>
+          (i + 1) % 3
+        );
+      }
+    }, 4000);
+  }
+
+  pauseQuote() { this.isPaused = true; }
+  resumeQuote() { this.isPaused = false; }
+
+  setQuote(index: number) {
+    this.currentQuoteIndex.set(index);
+  }
+
   displayedText = signal('');
   showCursor = signal(true);
 
@@ -44,11 +75,13 @@ export class HeroComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.startTypewriter();
     this.startCursorBlink();
+    this.startQuoteRotation();
   }
 
   ngOnDestroy() {
     clearTimeout(this.timer);
     clearInterval(this.cursorTimer);
+    clearInterval(this.quoteTimer);
   }
 
   private startTypewriter() {

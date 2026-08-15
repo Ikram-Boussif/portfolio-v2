@@ -1,15 +1,19 @@
 <nav>
   <div class="logo gradient-text" routerLink="/">IB.</div>
 
-  <ul>
+  <!-- Desktop menu -->
+  <ul class="desktop-menu">
     <li><a href="#about" [class.active]="router.url === '/'">{{ language.lang() === 'en' ? 'About' : 'À propos' }}</a></li>
-    <li><a href="#experience">{{ language.lang() === 'en' ? 'Exprience' : 'Expérience' }}</a></li>
+    <li><a href="#experience">{{ language.lang() === 'en' ? 'Experience' : 'Expérience' }}</a></li>
     <li><a href="#skills">{{ language.lang() === 'en' ? 'Skills' : 'Compétences' }}</a></li>
     <li><a href="#projects">{{ language.lang() === 'en' ? 'Projects' : 'Projets' }}</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 
   <div class="nav-actions">
+    <a href="#contact" class="nav-cta">
+      {{ language.lang() === 'en' ? 'Get in touch' : 'Me contacter' }}
+    </a>
     <div class="toggle-pill">
       <span class="pill-item" [class.act]="language.lang() === 'en'"
         (click)="language.lang() === 'fr' && language.toggle()">EN</span>
@@ -19,5 +23,20 @@
     <!-- <button class="toggle" (click)="theme.toggle()">
       {{ theme.isDark() ? '☀️' : '🌙' }}
     </button> -->
+    <!-- Hamburger -->
+    <button class="hamburger" (click)="toggleMenu()">
+      <span [class.open]="isMenuOpen()"></span>
+      <span [class.open]="isMenuOpen()"></span>
+      <span [class.open]="isMenuOpen()"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" [class.open]="isMenuOpen()">
+    <a href="#about" (click)="closeMenu()">{{ language.lang() === 'en' ? 'About' : 'À propos' }}</a>
+    <a href="#experience" (click)="closeMenu()">{{ language.lang() === 'en' ? 'Experience' : 'Expérience' }}</a>
+    <a href="#skills" (click)="closeMenu()">{{ language.lang() === 'en' ? 'Skills' : 'Compétences' }}</a>
+    <a href="#projects" (click)="closeMenu()">{{ language.lang() === 'en' ? 'Projects' : 'Projets' }}</a>
+    <a href="#contact" (click)="closeMenu()">Contact</a>
   </div>
 </nav>

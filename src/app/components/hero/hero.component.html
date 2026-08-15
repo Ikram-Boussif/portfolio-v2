@@ -6,7 +6,7 @@
         <span>{{ lang.t(texts.badge) }}</span>
       </div>
       <div class="name-row">
-        <h1>{{ lang.t(texts.greeting) }} <span class="gradient-text">Ikram</span></h1>
+        <h1 [class.h1-fr]="lang.lang() === 'fr'">{{ lang.t(texts.greeting) }} <span class="gradient-text">Ikram Boussif</span></h1>
         <!-- <button class="watch-btn" (click)="showVideo = true">
           <div class="play-icon">▶</div>
           <div class="watch-info">
@@ -52,4 +52,21 @@
       <span class="label">{{ lang.t(texts.projects) }}</span>
     </div>
   </div>
+
+  <div class="quote-card"
+     (mouseenter)="pauseQuote()"
+     (mouseleave)="resumeQuote()">
+  <div class="quote-content">
+    <span class="quote-icon">"</span>
+    <p class="quote-text">{{ currentQuote.text }}</p>
+    <span class="quote-author">{{ currentQuote.author }}</span>
+  </div>
+  <div class="quote-dots">
+    <span class="dot"
+          *ngFor="let q of quotes; let i = index"
+          [class.active]="currentQuoteIndex() === i"
+          (click)="setQuote(i)">
+    </span>
+  </div>
+</div>
 </section>
