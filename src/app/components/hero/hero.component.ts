@@ -1,9 +1,10 @@
 import { Component, signal, inject, OnInit, OnDestroy } from '@angular/core';
 import { LanguageService } from '../../services/language.service';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-hero',
-  imports: [],
+  imports: [NgFor],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss'
 })
