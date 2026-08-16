@@ -88,7 +88,7 @@ export class ProjectDetailComponent implements OnInit {
       name: { en: 'Portfolio', fr: 'Portfolio' },
       category: 'Frontend',
       type: { en: 'Personal', fr: 'Personnel' },
-      year: { en: '2025', fr: '2025' },
+      year: { en: '2026', fr: '2026' },
       color: 'purple',
       private: false,
       hasDemo: false,
