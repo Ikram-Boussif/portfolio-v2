@@ -6,7 +6,7 @@ import { LanguageService } from '../../services/language.service';
 
 interface Project {
   id: number;
-  name: string;
+  name: { en: string; fr: string };
   description: { en: string; fr: string };
   category: string;
   year: { en: string; fr: string };
@@ -46,7 +46,10 @@ export class ProjectsComponent {
   projects: Project[] = [
     {
       id: 1,
-      name: 'Fintech Dashboard',
+      name: {
+        en: 'Mortgage Loan Management',
+        fr: 'Gestion des Prêts Hypothécaires'
+      },
       description: {
         en: 'Financial operations platform built with Angular & Spring Boot microservices.',
         fr: 'Plateforme de gestion financière construite avec Angular et Spring Boot en architecture microservices.'
@@ -61,7 +64,22 @@ export class ProjectsComponent {
     },
     {
       id: 2,
-      name: 'KinderGarten',
+      name: { en: 'Portfolio', fr: 'Portfolio' },
+      description: {
+        en: 'Personal portfolio built with Angular 19 featuring 4 color themes, EN/FR language switcher, scroll animations, project detail pages with routing and EmailJS contact form.',
+        fr: 'Portfolio personnel développé avec Angular 19 avec 4 thèmes de couleurs, switcher de langue EN/FR, animations au scroll, pages de détail de projets avec routing et formulaire de contact EmailJS.'
+      },
+      category: 'Frontend',
+      year: { en: '2026', fr: '2026' },
+      tags: ['Angular 19', 'TypeScript', 'SCSS', 'EmailJS', 'Vercel'],
+      color: 'purple',
+      github: 'https://github.com/Ikram-Boussif/ikram-boussif-portfolio',
+      live: 'https://ikram-boussif-portfolio.vercel.app/',
+      private: false
+    },
+    {
+      id: 3,
+      name: { en: 'KinderGarten', fr: 'Jardin d\'enfants' },
       description: {
         en: 'A web platform dedicated to kindergarten management, enabling administrators, owners and parents to interact through dedicated dashboards.',
         fr: 'Une plateforme web dédiée à la gestion des jardins d\'enfants, permettant aux administrateurs, propriétaires et parents d\'interagir via des tableaux de bord dédiés.'
@@ -75,8 +93,8 @@ export class ProjectsComponent {
       private: false
     },
     {
-      id: 3,
-      name: 'Herbin — Biotherapy App',
+      id: 4,
+      name: { en: 'Herbin', fr: 'Herbin' },
       description: {
         en: 'A web platform for selling therapeutic products online, with catalog browsing and admin product management.',
         fr: 'Une plateforme web de vente de produits thérapeutiques en ligne, avec navigation dans le catalogue et gestion des produits par les administrateurs.'
@@ -90,8 +108,8 @@ export class ProjectsComponent {
       private: false
     },
     {
-      id: 4,
-      name: 'Météo App',
+      id: 5,
+      name: { en: 'Weather', fr: 'Météo' },
       description: {
         en: 'Weather application that automatically detects the user\'s location or lets them search a city, using the OpenWeatherMap API.',
         fr: 'Application météo qui détecte automatiquement la position de l\'utilisateur ou permet de rechercher une ville, via l\'API OpenWeatherMap.'
@@ -105,8 +123,8 @@ export class ProjectsComponent {
       private: false
     },
     {
-      id: 5,
-      name: 'Le Juste Prix',
+      id: 6,
+      name: { en: 'The right Price', fr: 'Le juste prix' },
       description: {
         en: 'Interactive JavaScript guessing game — find a random number between 0 and 1000 with feedback after each attempt.',
         fr: 'Jeu de devinettes interactif en JavaScript — trouvez un nombre aléatoire entre 0 et 1000 grâce à un retour après chaque tentative.'

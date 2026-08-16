@@ -17,7 +17,7 @@
           🔒 {{ lang.lang() === 'en' ? 'Private' : 'Privé'}}
         </span>
       </div>
-      <h1>{{ project()!.name }}</h1>
+      <h1>{{ project()!.name[lang.lang()] }}</h1>
       <p class="detail-year">{{ project()!.year[lang.lang()] }}</p>
       <div class="detail-tags">
         <span class="detail-tag" *ngFor="let tag of project()!.tags">{{ tag }}</span>
@@ -73,13 +73,13 @@
 
       <div class="demo-screenshots" *ngIf="project()!.screenshots.length">
         <div class="screenshot-wrapper main" (click)="openZoom(project()!.screenshots[0])">
-          <img [src]="project()!.screenshots[0]" [alt]="project()!.name + ' screenshot 1'" class="screenshot-main" />
+          <img [src]="project()!.screenshots[0]" [alt]="project()!.name[lang.lang()] + ' screenshot 1'" class="screenshot-main" />
           <div class="zoom-hint">🔍</div>
         </div>
 
         <div class="screenshots-sub" *ngIf="project()!.screenshots.length > 1">
           <div class="screenshot-wrapper" *ngFor="let shot of project()!.screenshots.slice(1)" (click)="openZoom(shot)">
-            <img [src]="shot" [alt]="project()!.name + ' screenshot'" class="screenshot-thumb" />
+            <img [src]="shot" [alt]="project()!.name[lang.lang()] + ' screenshot'" class="screenshot-thumb" />
             <div class="zoom-hint">🔍</div>
           </div>
         </div>

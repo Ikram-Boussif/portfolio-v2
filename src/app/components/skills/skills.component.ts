@@ -21,31 +21,31 @@ export class SkillsComponent {
 
   skillGroups = [
     {
-      category: 'Languages',
+      category: {en:'Languages',fr:'Langages'},
       icon: '{ }',
       color: 'purple',
       skills: ['TypeScript', 'JavaScript', 'Java', 'HTML5', 'CSS3 / SCSS']
     },
     {
-      category: 'Frameworks & Libraries',
+      category: {en:'Frameworks & Libraries',fr:'Frameworks et Librairies'},
       icon: '⚡',
       color: 'teal',
       skills: ['Angular 19', 'Spring Boot', 'RxJS', 'NgRx', 'Angular Material', 'PrimeNG', 'TailwindCSS', 'Chart.js', 'Leaflet']
     },
     {
-      category: 'Testing & Quality',
+      category: {en:'Testing & Quality', fr:'Tests et Qualité'},
       icon: '✓',
       color: 'blue',
       skills: ['Jasmine', 'Karma', 'TDD', 'SonarQube', 'SonarLint']
     },
     {
-      category: 'DevOps & Tools',
+      category: {en:'DevOps & Tools',fr:'DevOps et outils'},
       icon: '⚙',
       color: 'orange',
       skills: ['Git', 'GitHub', 'GitLab', 'Docker', 'Jenkins', 'Figma', 'REST APIs']
     },
     {
-      category: 'Databases',
+      category: {en:'Databases',fr:'Bases de données'},
       icon: '▦',
       color: 'pink',
       skills: ['MySQL', 'MongoDB']

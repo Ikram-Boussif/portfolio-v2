@@ -54,22 +54,24 @@ export class ExperienceComponent {
       tags: ['Angular 19', 'Spring Boot', 'NgRx', 'Chart.js', 'CometChat', 'Leaflet'],
       bullets: {
         en: [
-          'Led Angular v14→v19 migration, reducing load time by 79% (1.7 min → 22s) via lazy loading',
-          'Developed Spring Boot microservices exposing REST APIs for financial and transactional flows',
-          'Built interconnected Angular modules: billing, accounting, SLA, notifications & authentication',
-          'Developed real-time communication module with CometChat — centralized notifications & read receipts',
-          'Implemented OCR frontend workflow: file upload, data extraction and auto form population',
-          'Built interactive maps with Leaflet & OpenStreetMap for geographic data visualization',
-          'Improved code quality using SonarQube & SonarLint'
+          'Participated in the transition from a monolithic to a microservices architecture, developing interconnected Angular modules across multiple business services (billing, accounting, financial transactions, SLA, notifications and authentication)',
+          'Led the Angular migration from version 14 to 19 of a financial platform, managing breaking changes, PrimeNG updates and technical documentation, strengthening application performance and stability',
+          'Reduced loading time by 79% (from 1.7 min to 22s) by implementing lazy loading of Angular modules',
+          'Developed a real-time communication module based on CometChat within a microservices architecture, integrating centralized notifications, read receipts and unread message management around financial records',
+          'Enhanced dashboards (Chart.js) with pie charts, histograms and customizable user-profile views, improving financial operations lifecycle tracking and data visualization',
+          'Improved code quality and maintainability using SonarQube and SonarLint, fixing quality, security and technical debt issues',
+          'Developed and maintained Spring Boot microservices exposing REST APIs for complex financial and transactional flows',
+          'Collaborated with QA and DevOps teams to ensure software quality, delivery stability and deployment reliability'
         ],
         fr: [
-          'Conduit la migration Angular v14→v19, réduisant le temps de chargement de 79% (1,7 min → 22s) via le lazy loading',
-          'Développé et maintenu des microservices Spring Boot exposant des APIs REST pour les flux financiers',
-          'Construit des modules Angular interconnectés : facturation, comptabilité, SLA, notifications & authentification',
-          'Développé un module de communication temps réel avec CometChat — notifications centralisées & accusés de lecture',
-          'Implémenté le workflow OCR frontend : upload, extraction de données et préremplissage automatique des formulaires',
-          'Développé des fonctionnalités cartographiques avec Leaflet & OpenStreetMap pour la visualisation géographique',
-          'Amélioré la qualité du code via SonarQube & SonarLint'
+          'Participé à la transition d\'une architecture monolithique vers une architecture microservices, en développant des modules Angular interconnectés avec plusieurs services métier (facturation, comptabilité, transactions financières, SLA, notifications et authentification)',
+          'Assuré la migration Angular de la version 14 à 19 d\'une plateforme financière, en gérant les breaking changes, la mise à jour de PrimeNG et la documentation technique, renforçant les performances et la stabilité de l\'application',
+          'Réduit le temps de chargement de 79% (de 1,7 min à 22 s) en implémentant le lazy loading des modules Angular',
+          'Développé un module de communication en temps réel basé sur CometChat dans une architecture microservices, intégrant un système centralisé de notifications, accusés de lecture et gestion des messages non lus autour des dossiers financiers',
+          'Enrichi les dashboards (Chart.js) avec pie charts, histogrammes et vues personnalisables par profil utilisateur, améliorant le suivi du cycle de vie des opérations financières et la visualisation des données',
+          'Optimisé la qualité et la maintenabilité du code via SonarQube et SonarLint, en corrigeant les problèmes de qualité, de sécurité et de dette technique',
+          'Développé et maintenu des microservices Spring Boot exposant des API REST pour la gestion de flux financiers et transactionnels complexes',
+          'Travaillé en collaboration avec les équipes QA et DevOps pour garantir la qualité logicielle, la stabilité des livraisons et la fiabilité des déploiements'
         ]
       }
     },

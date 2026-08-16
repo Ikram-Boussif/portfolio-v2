@@ -12,7 +12,7 @@
       <div class="skill-group" scrollAnimation direction="left" *ngFor="let group of skillGroups">
         <div class="group-title">
           <span class="icon">{{ group.icon }}</span>
-          <span>{{ group.category }}</span>
+          <span>{{ group.category[lang.lang()] }}</span>
         </div>
         <div class="chips">
           <span class="chip {{ group.color }}" *ngFor="let skill of group.skills; let i = index"

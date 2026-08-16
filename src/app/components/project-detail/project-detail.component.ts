@@ -6,7 +6,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 interface ProjectDetail {
   id: number;
-  name: string;
+  name: { en: string, fr: string };
   category: string;
   type: { en: string; fr: string };
   year: { en: string; fr: string };
@@ -41,7 +41,10 @@ export class ProjectDetailComponent implements OnInit {
   projects: ProjectDetail[] = [
     {
       id: 1,
-      name: 'Fintech Dashboard',
+      name: {
+        en: 'Mortgage Loan Management',
+        fr: 'Gestion des Prêts Hypothécaires'
+      },
       category: 'Full-Stack',
       type: { en: 'Professional', fr: 'Professionnel' },
       year: { en: '2023 – Present', fr: '2023 – Présent' },
@@ -61,30 +64,67 @@ export class ProjectDetailComponent implements OnInit {
       },
       bullets: {
         en: [
-          'Participated in the transition from a monolithic to a microservices architecture, developing interconnected Angular modules across multiple business services (billing, accounting, financial transactions, SLA, notifications and authentication)',
-          'Led the Angular migration from version 14 to 19 of a financial platform, managing breaking changes, PrimeNG updates and technical documentation, strengthening application performance and stability',
-          'Reduced loading time by 79% (from 1.7 min to 22s) by implementing lazy loading of Angular modules',
-          'Developed a real-time communication module based on CometChat within a microservices architecture, integrating centralized notifications, read receipts and unread message management around financial records',
-          'Enhanced dashboards (Chart.js) with pie charts, histograms and customizable user-profile views, improving financial operations lifecycle tracking and data visualization',
-          'Improved code quality and maintainability using SonarQube and SonarLint, fixing quality, security and technical debt issues',
-          'Developed and maintained Spring Boot microservices exposing REST APIs for complex financial and transactional flows',
-          'Collaborated with QA and DevOps teams to ensure software quality, delivery stability and deployment reliability'
+          'Led Angular v14→v19 migration, reducing load time by 79% (1.7 min → 22s) via lazy loading',
+          'Developed Spring Boot microservices exposing REST APIs for financial and transactional flows',
+          'Built interconnected Angular modules: billing, accounting, SLA, notifications & authentication',
+          'Developed real-time communication module with CometChat — centralized notifications & read receipts',
+          'Implemented OCR frontend workflow: file upload, data extraction and auto form population',
+          'Built interactive maps with Leaflet & OpenStreetMap for geographic data visualization',
+          'Improved code quality using SonarQube & SonarLint'
         ],
         fr: [
-          'Participé à la transition d\'une architecture monolithique vers une architecture microservices, en développant des modules Angular interconnectés avec plusieurs services métier (facturation, comptabilité, transactions financières, SLA, notifications et authentification)',
-          'Assuré la migration Angular de la version 14 à 19 d\'une plateforme financière, en gérant les breaking changes, la mise à jour de PrimeNG et la documentation technique, renforçant les performances et la stabilité de l\'application',
-          'Réduit le temps de chargement de 79% (de 1,7 min à 22 s) en implémentant le lazy loading des modules Angular',
-          'Développé un module de communication en temps réel basé sur CometChat dans une architecture microservices, intégrant un système centralisé de notifications, accusés de lecture et gestion des messages non lus autour des dossiers financiers',
-          'Enrichi les dashboards (Chart.js) avec pie charts, histogrammes et vues personnalisables par profil utilisateur, améliorant le suivi du cycle de vie des opérations financières et la visualisation des données',
-          'Optimisé la qualité et la maintenabilité du code via SonarQube et SonarLint, en corrigeant les problèmes de qualité, de sécurité et de dette technique',
-          'Développé et maintenu des microservices Spring Boot exposant des API REST pour la gestion de flux financiers et transactionnels complexes',
-          'Travaillé en collaboration avec les équipes QA et DevOps pour garantir la qualité logicielle, la stabilité des livraisons et la fiabilité des déploiements'
+          'Conduit la migration Angular v14→v19, réduisant le temps de chargement de 79% (1,7 min → 22s) via le lazy loading',
+          'Développé et maintenu des microservices Spring Boot exposant des APIs REST pour les flux financiers',
+          'Construit des modules Angular interconnectés : facturation, comptabilité, SLA, notifications & authentification',
+          'Développé un module de communication temps réel avec CometChat — notifications centralisées & accusés de lecture',
+          'Implémenté le workflow OCR frontend : upload, extraction de données et préremplissage automatique des formulaires',
+          'Développé des fonctionnalités cartographiques avec Leaflet & OpenStreetMap pour la visualisation géographique',
+          'Amélioré la qualité du code via SonarQube & SonarLint'
         ]
       },
     },
     {
       id: 2,
-      name: 'KinderGarten',
+      name: { en: 'Portfolio', fr: 'Portfolio' },
+      category: 'Frontend',
+      type: { en: 'Personal', fr: 'Personnel' },
+      year: { en: '2025', fr: '2025' },
+      color: 'purple',
+      private: false,
+      hasDemo: false,
+      videoUrl: '',
+      screenshots: [],
+      tags: ['Angular 19', 'TypeScript', 'SCSS', 'EmailJS', 'Vercel'],
+      github: 'https://github.com/Ikram-Boussif/ikram-boussif-portfolio',
+      live: 'https://ikram-boussif-portfolio.vercel.app/',
+      description: {
+        en: 'Personal portfolio built with Angular 19 featuring 4 color themes, EN/FR language switcher, scroll animations, project detail pages with lazy-loaded routing and EmailJS contact form.',
+        fr: 'Portfolio personnel développé avec Angular 19 avec 4 thèmes de couleurs, switcher de langue EN/FR, animations au scroll, pages de détail avec routing lazy-loaded et formulaire de contact EmailJS.'
+      },
+      bullets: {
+        en: [
+          'Built with Angular 19 standalone components and signals for reactive state management',
+          'Implemented 4 color themes with CSS variables that change dynamically at runtime',
+          'EN/FR language switcher with full content translation using a custom LanguageService',
+          'Lazy-loaded routing for project detail pages — HomeComponent and ProjectDetailComponent',
+          'Scroll animations using IntersectionObserver API via a custom Angular directive',
+          'Contact form powered by EmailJS — no backend required',
+          'Deployed on Vercel with automatic deployment on every git push'
+        ],
+        fr: [
+          'Développé avec Angular 19 standalone components et signals pour la gestion réactive de l\'état',
+          'Implémentation de 4 thèmes de couleurs avec variables CSS modifiables dynamiquement',
+          'Switcher de langue EN/FR avec traduction complète du contenu via un LanguageService personnalisé',
+          'Routing lazy-loaded pour les pages de détail — HomeComponent et ProjectDetailComponent',
+          'Animations au scroll via l\'API IntersectionObserver avec une directive Angular personnalisée',
+          'Formulaire de contact via EmailJS — sans backend',
+          'Déployé sur Vercel avec déploiement automatique à chaque git push'
+        ]
+      }
+    },
+    {
+      id: 3,
+      name: { en: 'KinderGarten', fr: 'Jardin d\'enfants' },
       category: 'Full-Stack',
       type: { en: 'Academic', fr: 'Académique' },
       year: { en: '2021', fr: '2021' },
@@ -118,8 +158,8 @@ export class ProjectDetailComponent implements OnInit {
       },
     },
     {
-      id: 3,
-      name: 'Herbin — Biotherapy App',
+      id: 4,
+      name: { en: 'Herbin', fr: 'Herbin' },
       category: 'Full-Stack',
       type: { en: 'Internship', fr: 'Stage' },
       year: { en: '2021', fr: '2021' },
@@ -155,8 +195,8 @@ export class ProjectDetailComponent implements OnInit {
       }
     },
     {
-      id: 4,
-      name: 'Météo App',
+      id: 5,
+      name: { en: 'Weather', fr: 'Météo' },
       category: 'Frontend',
       type: { en: 'Personal', fr: 'Personnel' },
       year: { en: '2024', fr: '2024' },
@@ -186,8 +226,8 @@ export class ProjectDetailComponent implements OnInit {
       }
     },
     {
-      id: 5,
-      name: 'The right Price',
+      id: 6,
+      name: { en: 'The right Price', fr: 'Le juste prix' },
       category: 'Frontend',
       type: { en: 'Personal', fr: 'Personnel' },
       year: { en: '2025', fr: '2025' },

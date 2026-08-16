@@ -42,7 +42,7 @@
       </div>
 
       <div class="card-body">
-        <div class="card-name">{{ project.name }}</div>
+        <div class="card-name">{{ project.name[lang.lang()] }}</div>
         <div class="card-desc">{{ project.description[lang.lang()] }}</div>
         <div class="card-tags">
           <span class="tag" *ngFor="let tag of project.tags">{{ tag }}</span>
